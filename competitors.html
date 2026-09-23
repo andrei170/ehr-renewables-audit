@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Competitor Analysis &middot; EHR Renewables &middot; AG1 Consulting</title><style>
+:root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9aa7b4;--line:#2a3340;--accent:#2f81f7;
+  --good:#3fb950;--bad:#f85149;--gradF:#f85149;--gradD:#e8702a;--gradC:#d29922;--gradB:#3fb950;--gradA:#2ea043;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+header{padding:46px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(1200px 400px at 70% -10%,rgba(47,129,247,.18),transparent)}
+h1{font-size:30px;font-weight:800;margin:10px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:15px}
+.hero{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;margin:34px 0 8px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.gradecard{border:1px solid var(--line);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+.gc-F{background:linear-gradient(160deg,#2a1410,#1c2330)}.gc-D{background:linear-gradient(160deg,#2a1c10,#1c2330)}
+.gc-C{background:linear-gradient(160deg,#2a2410,#1c2330)}.gc-B{background:linear-gradient(160deg,#102a1a,#1c2330)}
+.bigletter{font-size:96px;font-weight:900;line-height:1;position:relative}
+.bl-F{color:var(--gradF);text-shadow:0 0 40px rgba(248,81,73,.45)}
+.bl-D{color:var(--gradD);text-shadow:0 0 40px rgba(232,112,42,.45)}
+.bl-C{color:var(--gradC);text-shadow:0 0 40px rgba(210,153,34,.45)}
+.score100{font-size:18px;color:var(--mut);margin-top:6px;position:relative}
+.heroread h2{font-size:21px;font-weight:800;margin-bottom:10px}
+.heroread p{color:var(--mut);font-size:15.5px}
+.heroread .tag{display:inline-block;margin-top:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink);background:var(--panel)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+.h{font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.rname{font-weight:600;font-size:15px}
+.bar{height:7px;background:#0b0f15;border-radius:99px;margin-top:9px;overflow:hidden}
+.fill{height:100%;border-radius:99px}
+.badge{font-weight:800;font-size:15px;min-width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#0d1117}
+.gF{background:var(--gradF)}.gD{background:var(--gradD)}.gC{background:var(--gradC)}.gB{background:var(--gradB);color:#06210f}.gA{background:var(--gradA);color:#06210f}
+.sc{font-size:12px;color:var(--mut);margin-top:3px}
+.flag{background:linear-gradient(160deg,#2a1410,#161b22);border:1px solid #6f2a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.flag .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--bad);font-weight:700;margin-bottom:8px}
+.win{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.win .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--good);font-weight:700;margin-bottom:8px}
+.warn{background:linear-gradient(160deg,#2a2410,#161b22);border:1px solid #6f5a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.warn .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gradC);font-weight:700;margin-bottom:8px}
+.flag p,.win p,.warn p{color:var(--mut);font-size:14.5px;margin-bottom:9px}
+.flag p:last-child,.win p:last-child,.warn p:last-child{margin-bottom:0}
+.flag b,.win b,.warn b{color:var(--ink)}
+.flag ul,.win ul,.warn ul{margin:0 0 9px 20px;color:var(--mut);font-size:14.5px}
+.flag li,.win li,.warn li{margin-bottom:6px}
+.code{background:#0b0f15;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;line-height:1.85;color:var(--mut);overflow-x:auto}
+.code .ph{color:#ff9d94;font-weight:700}.code .ok{color:#84e0a8;font-weight:700}.code .c{color:#5b6672}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cmp th{text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--line);font-weight:700}
+.cmp td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.cmp tr:last-child td{border-bottom:none}.cmp td b{color:var(--ink)}.cmp tr.you td{background:#241a12}
+.cmp .yes{color:var(--good);font-weight:700}.cmp .no{color:var(--bad);font-weight:700}
+.opp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.opp{grid-template-columns:1fr}}
+.ocard{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px;text-align:center}
+.ocard .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut)}
+.ocard .big{font-size:30px;font-weight:900;color:var(--good);margin:8px 0 2px}
+.ocard .small{font-size:13px;color:var(--mut)}
+.oppnote{color:var(--mut);font-size:14px;margin-top:14px}.oppnote b{color:var(--ink)}
+.arrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 2px;flex-wrap:wrap}
+.pill{font-size:60px;font-weight:900;line-height:1}
+.pill.from-F{color:var(--gradF)}.pill.from-D{color:var(--gradD)}.pill.from-C{color:var(--gradC)}
+.pill.to{color:var(--gradA)}
+.pilllab{font-size:12px;color:var(--mut);text-align:center;text-transform:uppercase;letter-spacing:.1em}
+.ar{font-size:34px;color:var(--mut)}
+ul.road{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){ul.road{grid-template-columns:1fr}}
+ul.road li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:14.5px}
+.road2 li{border-left-color:var(--good)}
+.cta{text-align:center;padding:40px 0 56px}
+.cta h2{font-size:22px;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--mut);font-size:15px}
+footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;line-height:1.7}
+.gscale{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 26px 20px;margin-top:16px}
+.gscale .gtitle{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);font-weight:700;margin-bottom:26px;text-align:center}
+.gtrack{position:relative;height:14px;border-radius:8px;background:linear-gradient(90deg,#f85149 0%,#f85149 18%,#e3833c 34%,#d4a72c 52%,#7ec46a 74%,#3fb950 100%);margin:0 4px}
+.gmark{position:absolute;top:-46px;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.gmark .gm-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:700}
+.gmark .gm-val{font-size:19px;font-weight:900;line-height:1.15}
+.gmark:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:22px;transform:translateX(-50%);background:currentColor;opacity:.75}
+.gmark.now{color:var(--bad)}.gmark.now .gm-val{color:var(--bad)}
+.gmark.proj{color:var(--good)}.gmark.proj .gm-val{color:var(--good)}
+.gmark.proj{top:auto;bottom:-52px}
+.gmark.proj:after{top:auto;bottom:100%}
+.gdot{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);border:3px solid #0d1117}
+.gdot.now{background:var(--bad)}.gdot.proj{background:var(--good)}
+.gticks{display:flex;justify-content:space-between;margin:66px 4px 0;font-size:11px;letter-spacing:.08em;color:var(--mut);font-weight:700}
+@media(max-width:620px){.gmark .gm-lab{font-size:9px}.gmark .gm-val{font-size:16px}}
+
+.agnav{position:sticky;top:0;z-index:60;background:rgba(13,17,23,.93);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.agnav .inner{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.agnav .inner::-webkit-scrollbar{display:none}
+.agnav a{flex:0 0 auto;padding:13px 12px;font-size:13.5px;font-weight:600;color:var(--mut);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
+.agnav a:hover{color:var(--ink)}
+.agnav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+.agnav a.ext{opacity:.8}
+@media(max-width:640px){.agnav .inner{padding:0 14px}.agnav a{padding:12px 10px;font-size:13px}}
+</style></head><body><nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="./">Audit</a><a href="competitors.html" class="on">Competitors</a><a href="https://andrei170.github.io/ehr-renewables-demo/" class="ext" target="_blank" rel="noopener">Concept Site &#8599;</a></div></nav>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Dadansoddiad Cystadleuwyr &middot; Competitor Analysis &middot; Renewables &middot; Gogledd Cymru</div>
+    <div class="sub">Prepared for Euros Hughes &middot; EHR Renewables &middot; 23 September 2026 &middot; AG1 Consulting</div>
+    <h1>One Rival Publishes 161 Case Studies And Has A Page For Conwy And Gwynedd. You Have Five Pages.</h1>
+
+    <div class="hero">
+      <div class="gradecard gc-F">
+        <div class="bigletter bl-F" style="font-size:40px">248</div>
+        <div class="score100">URLs published by JM Renewables. You publish 5.</div>
+      </div>
+      <div class="heroread">
+        <h2>They are not better installers. They have simply written more down.</h2>
+        <p>You hold <b>MCS, NAPIT, RECC and TrustMark</b> &mdash; the full set. Neither of the two firms below publishes
+        a stronger accreditation list than yours.</p>
+        <p><b>But one of them has a dedicated page for Gwynedd and another for Conwy</b>, and you do not have a page for
+        solar.</p>
+        <div class="tag">Read from each firm's own served pages and published sitemaps, 23 September 2026</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="h">The Comparison</div>
+    <div style="overflow-x:auto">
+    <table class="cmp">
+      <tr>
+        <th></th>
+        <th>JM Renewables</th>
+        <th>Goodwin Electrical</th>
+        <th class="you">EHR Renewables</th>
+      </tr>
+      <tr><td><b>Total URLs published</b></td><td class="yes">248</td><td class="yes">63</td><td class="no"><b>5</b></td></tr>
+      <tr><td><b>Service pages</b></td><td class="yes">7</td><td class="yes">Multiple</td><td class="no"><b>0</b></td></tr>
+      <tr><td><b>Area / town pages</b></td><td class="yes">26 &mdash; incl. Gwynedd &amp; Conwy</td><td>Not published</td><td class="no"><b>0</b></td></tr>
+      <tr><td><b>Case studies</b></td><td class="yes">161</td><td>Not published</td><td class="no"><b>0</b></td></tr>
+      <tr><td><b>Sector pages</b></td><td class="yes">6</td><td>Not published</td><td class="no"><b>0</b></td></tr>
+      <tr><td><b>Homepage word count</b></td><td class="yes">2,597</td><td class="yes">4,786</td><td class="no"><b>381</b></td></tr>
+      <tr><td><b>Analytics installed</b></td><td class="yes">GA4</td><td class="yes">GA4</td><td class="no"><b>None</b></td></tr>
+      <tr><td><b>Star ratings in search</b></td><td class="no">Not found</td><td class="yes">AggregateRating markup</td><td class="no"><b>None</b></td></tr>
+      <tr><td><b>Structured data</b></td><td class="yes">Place + GeoCoordinates</td><td class="yes">LocalBusiness + Breadcrumbs</td><td><b>LocalBusiness</b></td></tr>
+      <tr><td><b>Tappable phone</b></td><td>1</td><td class="yes">3</td><td><b>1</b></td></tr>
+      <tr><td><b>Welsh-language site</b></td><td class="no">No</td><td class="no">No</td><td class="you"><b>Yes &mdash; throughout</b></td></tr>
+      <tr><td><b>MCS &middot; NAPIT &middot; RECC &middot; TrustMark</b></td><td>Not all published</td><td>Not all published</td><td class="you"><b>All four</b></td></tr>
+    </table>
+    </div>
+    <div class="tag" style="margin-top:12px">Counts are from each firm's own published sitemaps on 23 September 2026. "Not published" records that we did not find it and is not proof of absence &mdash; a firm without a published sitemap may still have many pages, and content rendered by JavaScript may not appear in a static read. Accreditations are as each firm displays them and have not been verified with MCS, NAPIT, RECC or TrustMark.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">The Two Rows That Decide This</div>
+    <div class="flag">
+      <div class="lab">They have a page for your town. You do not have a page for your trade.</div>
+      <p>JM Renewables publishes <b>/area/gwynedd/</b> and <b>/area/conwy/</b>. When somebody in your county searches for
+      solar panels, Google has a page written specifically about that county to show them &mdash; and it is not yours.</p>
+      <p><b>This is not a technology gap or a budget gap. It is a writing gap.</b> They sat down and wrote 26 area pages
+      and 161 case studies. Every one of those is permanent and keeps working.</p>
+      <p><b>You have almost certainly done more than 161 jobs.</b> You have just never written any of them down.</p>
+    </div>
+    <div class="win">
+      <div class="lab">And here is the row neither of them can ever copy</div>
+      <p><b>Neither JM Renewables nor Goodwin Electrical publishes in Welsh.</b> We checked both.</p>
+      <p>In Gwynedd, Ynys M&ocirc;n and Conwy that is a genuine and defensible advantage. A Cardiff or Cheshire firm can
+      out-publish you on volume tomorrow. <b>What they cannot do is become a Welsh-speaking local firm.</b></p>
+      <p>The answer is not to abandon the Welsh &mdash; it is to have <b>both</b>. A Welsh page and an English page for
+      every service and every town. Each ranks separately, and the Welsh ones face almost no competition at all.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Where You Can Win</div>
+    <div class="win">
+      <div class="lab">This is a much weaker field than the page counts suggest</div>
+      <ul>
+        <li><b>Nobody here is retargeting.</b> No Meta pixel found on either competitor. Neither is running the cheapest
+        advertising available to them.</li>
+        <li><b>Goodwin publishes AggregateRating markup</b> &mdash; that is what puts gold stars next to a result. It is
+        a one-off technical job and you could have it too.</li>
+        <li><b>JM's 161 case studies are their whole moat, and case studies are the easiest thing you own.</b> Six people,
+        eight jobs a week &mdash; that is a case study a day if you wanted it, with photographs you are already taking.</li>
+        <li><b>You hold all four accreditations.</b> Neither rival publishes the complete set. On a &pound;10,000
+        purchase that is the difference between a quote and a booking.</li>
+        <li><b>Welsh is uncontested.</b> Zero competition, in your own counties, in your own language.</li>
+      </ul>
+    </div>
+    <div class="warn">
+      <div class="lab">And where they are genuinely ahead</div>
+      <p><b>Both measure and you do not.</b> Both have GA4; you have nothing. They can see which page produced which
+      enquiry and you cannot &mdash; so every decision they make is informed and every decision you make is a guess.</p>
+      <p><b>JM covers Cheshire, the Wirral and all six North Wales counties.</b> They are not a local firm competing with
+      you; they are a regional firm that has decided your county is worth a page. That should tell you the county is
+      worth more than five pages to you.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">What We Could Not Check</div>
+    <div class="warn">
+      <div class="lab">Marked honestly rather than guessed</div>
+      <ul>
+        <li><b>Everyone's Google Business Profile, reviews and map position</b>, including yours. On local renewables
+        work a great deal of enquiry starts there and we have no reliable way to measure it.</li>
+        <li><b>Whether any firm here, including you, currently holds the accreditations displayed</b> &mdash; we read
+        websites, not registers.</li>
+        <li><b>Anyone's revenue, staffing, pricing, install volume or win rate</b>, including yours.</li>
+        <li><b>Whether any of them advertise on Google or Meta</b>, which is a separate auction we have not assessed.</li>
+        <li><b>Every renewables installer in North Wales.</b> This is the set we could find and verify, not a census, and
+        it excludes the national installers who buy leads into your area.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>They wrote 161 case studies. You did the work and wrote none of them down.</h2>
+    <p>And not one of them can publish in Welsh in Gwynedd. That part is yours alone.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Prepared by Andrei Givero &middot; AG1 Consulting &middot; 23 September 2026<br><br>
+    For Euros Hughes, Euros Hughes a'i Feibion / EHR Renewables, Gogledd Cymru. <b>Page counts, area and service page
+    counts, case-study counts, homepage word counts, analytics, structured data, tappable telephone links, form counts
+    and language of publication were read from each named company's own served pages and published sitemaps on 23
+    September 2026 and are reproducible.</b> Cells marked "not published" or "not found" record what our check returned
+    on that date and must not be read as proof of absence; content rendered by JavaScript may not appear in a static
+    read, and the absence of a published sitemap does not indicate a small site. <b>Accreditations are reproduced as each
+    firm displays them and have not been verified with MCS, NAPIT, RECC, TrustMark or any other scheme; we make no claim
+    that any firm named here, including EHR Renewables, does or does not hold any accreditation.</b> <b>No company's
+    revenue, staffing, pricing, install volume, win rate, licensing, insurance or workmanship has been assessed, and
+    nothing whatsoever is claimed or implied about any of them.</b> <b>No Google Business Profile, map position, review
+    count, search ranking or advertising activity has been measured for any firm, including EHR Renewables.</b> <b>The
+    team size, weekly job count and approximate &pound;10,000 average job value are as reported to AG1 and have not been
+    independently verified; the observation that you have likely completed more than 161 jobs is an inference from those
+    reported figures, not a measured count.</b> <b>⚠ No ranking, enquiry volume, market share, conversion or revenue
+    outcome is forecast or promised anywhere in this document.</b> Nothing here is a comment on the competence, conduct
+    or standing of any named business; company and scheme names are used for identification only and belong to their
+    respective owners. The commentary and any judgements are AG1's own editorial opinion.
+  </div>
+</footer>
+</body></html>
